@@ -10,7 +10,11 @@ import UIKit
 class TelaInicialViewController: UIViewController {
     
     // MARK: - Componentes
-    
+    private lazy var mainColor: UIColor = {
+        let colorView = UIColor(red: 41.0/255.0, green: 43.0/255.0, blue: 41.0/255.0, alpha: 0.8)
+        view.backgroundColor = colorView
+        return colorView
+    }()
     private lazy var subTitleLabel: UILabel = {
         let label = UILabel()
         label.textColor = .white
@@ -34,20 +38,22 @@ class TelaInicialViewController: UIViewController {
     }()
     
     private lazy var bannerImage: UIImageView = {
-        let image = UIImageView(image: "Vegeta-academia")
-        image.backgroundColor = .systemGray
+        let image = UIImageView()
+        image.image = UIImage(named: "academia-de-ginastica.jpg")
+        image.contentMode = .scaleAspectFill
         image.translatesAutoresizingMaskIntoConstraints = false
         return image
     }()
     private lazy var headerView: UIView = {
         let view = UIView()
-        view.backgroundColor = .systemGray
+        view.backgroundColor = mainColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
     
     private lazy var mainView: UIView = {
         let view = UIView()
+        view.backgroundColor = mainColor
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -56,8 +62,9 @@ class TelaInicialViewController: UIViewController {
         let botao = UIButton()
         botao.setTitle("START BUILDING YOUR BODY", for: .normal)
         botao.layer.cornerRadius = 10
-        botao.backgroundColor = .green
+        botao.backgroundColor = UIColor(red: 191.0/255.0, green: 247.0/255.0, blue: 87.0/255.0, alpha: 0.8)
         botao.translatesAutoresizingMaskIntoConstraints = false
+        botao.addTarget(self, action: #selector(nextView), for: .touchUpInside)
         return botao
     }()
     
@@ -79,6 +86,7 @@ class TelaInicialViewController: UIViewController {
         
         return botao
     }()
+    
     // MARK: - View life cycle
     
     override func viewDidLoad() {
@@ -90,26 +98,25 @@ class TelaInicialViewController: UIViewController {
         mainViewComponents()
         self.view.addSubview(mainView)
         
-        mainView.backgroundColor = .darkGray
         mainView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
         mainView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 0).isActive = true
         mainView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
         mainView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: 0).isActive = true
+        
+        
     }
     
     func headerViewComponents(){
         headerView.addSubview(subTitleLabel)
-        headerView.addSubview(titleLabel)
-        
         subTitleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
         subTitleLabel.centerYAnchor.constraint(equalTo: headerView.centerYAnchor, constant: 0).isActive = true
         
+        
+        headerView.addSubview(titleLabel)
         titleLabel.centerXAnchor.constraint(equalTo: headerView.centerXAnchor, constant: 0).isActive = true
         titleLabel.topAnchor.constraint(equalTo: subTitleLabel.bottomAnchor, constant: 0).isActive = true
-        
         titleLabel.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 30).isActive = true
         titleLabel.trailingAnchor.constraint(equalTo: headerView.trailingAnchor, constant: -20).isActive = true
-        
         titleLabel.heightAnchor.constraint(equalToConstant: 120).isActive = true
     }
     
@@ -143,5 +150,13 @@ class TelaInicialViewController: UIViewController {
         buttonRegister.topAnchor.constraint(equalTo: botaoStart.bottomAnchor, constant: 2.5).isActive = true
     }
 
+    // MARK: - Action
+    
+    @objc func nextView(){
+        let tabBarViewController = MainTabBarViewController()
+        let rootController = UINavigationController(rootViewController: tabBarViewController)
+        rootController.modalPresentationStyle = .fullScreen
+        present(rootController, animated: true)
+    }
 }
 
