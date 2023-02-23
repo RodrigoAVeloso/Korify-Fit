@@ -153,8 +153,8 @@ class TelaInicialViewController: UIViewController {
     // MARK: - Action
     
     @objc func nextView(){
-        let categoriesView = FeedViewController()
-        let rootController = UINavigationController(rootViewController: categoriesView)
+        let tabBarViewController = MainTabBarViewController()
+        let rootController = UINavigationController(rootViewController: tabBarViewController)
         rootController.modalPresentationStyle = .fullScreen
         present(rootController, animated: true)
     }

@@ -10,6 +10,7 @@ import UIKit
 class FeedViewController: UIViewController {
     
     // MARK: - Componentes
+
     private lazy var colorView = UIColor(red: 41.0/255.0, green: 43.0/255.0, blue: 41.0/255.0, alpha: 0.8)
     private lazy var headerView: UIView = {
         let view = UIView()
@@ -17,7 +18,7 @@ class FeedViewController: UIViewController {
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
-    
+
     private lazy var perfilImageView: UIImageView = {
         let image = UIImageView()
         image.image = UIImage(named: "michael-jackson-atleticano")
@@ -70,6 +71,8 @@ class FeedViewController: UIViewController {
     
     private lazy var feedScrollView: UIScrollView = {
         let view = UIScrollView()
+        view.backgroundColor = colorView
+        view.insetsLayoutMarginsFromSafeArea = false
         view.translatesAutoresizingMaskIntoConstraints = false
         return view
     }()
@@ -165,9 +168,9 @@ class FeedViewController: UIViewController {
     }
     
     func headerViewConfig() {
-
+        view.backgroundColor = colorView
         headerView.addSubview(perfilImageView)
-        perfilImageView.topAnchor.constraint(equalTo: headerView.topAnchor, constant: 80).isActive = true
+        perfilImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
         perfilImageView.leadingAnchor.constraint(equalTo: headerView.leadingAnchor, constant: 20).isActive = true
         perfilImageView.widthAnchor.constraint(equalToConstant: 80).isActive = true
         perfilImageView.heightAnchor.constraint(equalToConstant: 80).isActive = true
@@ -187,8 +190,8 @@ class FeedViewController: UIViewController {
         
         feedScrollView.leadingAnchor.constraint(equalTo: view.leadingAnchor).isActive = true
         feedScrollView.trailingAnchor.constraint(equalTo: view.trailingAnchor).isActive = true
-        feedScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: -100).isActive = true
-        feedScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: -100).isActive = true
+        feedScrollView.topAnchor.constraint(equalTo: view.topAnchor, constant: 0).isActive = true
+        feedScrollView.bottomAnchor.constraint(equalTo: view.bottomAnchor, constant: 100).isActive = true
         
         feedScrollView.addSubview(scrollStackViewContainer)
         scrollStackViewContainer.leadingAnchor.constraint(equalTo: feedScrollView.leadingAnchor).isActive = true
@@ -203,10 +206,11 @@ class FeedViewController: UIViewController {
         headerView.topAnchor.constraint(equalTo: scrollStackViewContainer.topAnchor).isActive = true
         headerView.trailingAnchor.constraint(equalTo: scrollStackViewContainer.trailingAnchor).isActive = true
         headerView.leadingAnchor.constraint(equalTo: scrollStackViewContainer.leadingAnchor).isActive = true
-        headerView.heightAnchor.constraint(equalToConstant: 200).isActive = true
+        headerView.heightAnchor.constraint(equalToConstant: 100).isActive = true
         
         scrollStackViewContainer.addArrangedSubview(mainSubView)
         mainSubView.heightAnchor.constraint(equalToConstant: 700).isActive = true
+        mainSubView.bottomAnchor.constraint(equalTo: scrollStackViewContainer.bottomAnchor).isActive = true
         configureMainSubView()
     }
     
