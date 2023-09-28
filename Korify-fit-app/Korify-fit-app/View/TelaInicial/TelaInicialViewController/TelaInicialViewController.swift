@@ -80,12 +80,14 @@ class TelaInicialViewController: UIViewController {
     
     private lazy var buttonRegister: UIButton = {
         let botao = UIButton()
-        botao.setTitle("REGISTER", for: .normal)
-        botao.titleLabel?.font = .systemFont(ofSize: 13, weight: .bold)
+        botao.setTitle("CREATE ONE", for: .normal)
+        botao.setTitleColor(UIColor(red: 191.0/255.0, green: 247.0/255.0, blue: 87.0/255.0, alpha: 0.8), for: .highlighted)
+        botao.titleLabel?.font = .systemFont(ofSize: 13, weight: .heavy)
         botao.translatesAutoresizingMaskIntoConstraints = false
-        
+        botao.addTarget(self, action: #selector(viewRegister), for: .touchUpInside)
         return botao
     }()
+    
     
     // MARK: - View life cycle
     
@@ -158,5 +160,16 @@ class TelaInicialViewController: UIViewController {
         rootController.modalPresentationStyle = .fullScreen
         present(rootController, animated: true)
     }
-}
+    
+    @objc func viewRegister(){
+        UIView.animate(withDuration: 0.1) {
+            self.buttonRegister.alpha = 0.8
+        }
+        buttonRegister.tintColor = .yellow
+        let cadastroViewController = CadastroViewController()
+        let rootController = UINavigationController(rootViewController: cadastroViewController)
+        rootController.modalPresentationStyle = .popover
+        present(rootController, animated: true)
+    }
 
+}

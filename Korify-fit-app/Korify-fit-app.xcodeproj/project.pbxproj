@@ -13,8 +13,11 @@
 		6219384F2996C9A400131D2D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 6219384E2996C9A400131D2D /* Assets.xcassets */; };
 		621938522996C9A400131D2D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 621938502996C9A400131D2D /* LaunchScreen.storyboard */; };
 		6219385D2996CB5800131D2D /* TelaInicialModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6219385C2996CB5800131D2D /* TelaInicialModel.swift */; };
+		6238C3632A375B6400BA0CFD /* CadastroViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6238C3622A375B6400BA0CFD /* CadastroViewController.swift */; };
 		623A9F9A299BAA6F00206413 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 623A9F99299BAA6F00206413 /* FeedViewController.swift */; };
+		624133592AC5B62600A742B8 /* CadastroModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 624133582AC5B62600A742B8 /* CadastroModel.swift */; };
 		62605DC1299FF7E7008D2599 /* FeedModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62605DC0299FF7E7008D2599 /* FeedModel.swift */; };
+		628D4D7C2AC1E2C900777999 /* MenuViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 628D4D7B2AC1E2C900777999 /* MenuViewController.swift */; };
 		62CAE41629A68E1E00FAB5D7 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 62CAE41529A68E1E00FAB5D7 /* MainTabBarViewController.swift */; };
 /* End PBXBuildFile section */
 
@@ -27,8 +30,11 @@
 		621938512996C9A400131D2D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		621938532996C9A400131D2D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		6219385C2996CB5800131D2D /* TelaInicialModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TelaInicialModel.swift; sourceTree = "<group>"; };
+		6238C3622A375B6400BA0CFD /* CadastroViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroViewController.swift; sourceTree = "<group>"; };
 		623A9F99299BAA6F00206413 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
+		624133582AC5B62600A742B8 /* CadastroModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CadastroModel.swift; sourceTree = "<group>"; };
 		62605DC0299FF7E7008D2599 /* FeedModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedModel.swift; sourceTree = "<group>"; };
+		628D4D7B2AC1E2C900777999 /* MenuViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuViewController.swift; sourceTree = "<group>"; };
 		62CAE41529A68E1E00FAB5D7 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -97,9 +103,28 @@
 			path = TelaInicialModel;
 			sourceTree = "<group>";
 		};
+		6238C3602A375B0B00BA0CFD /* Cadastro */ = {
+			isa = PBXGroup;
+			children = (
+				6241335A2AC5B62B00A742B8 /* CadastroModel */,
+				6238C3612A375B3600BA0CFD /* CadastroViewController */,
+			);
+			path = Cadastro;
+			sourceTree = "<group>";
+		};
+		6238C3612A375B3600BA0CFD /* CadastroViewController */ = {
+			isa = PBXGroup;
+			children = (
+				6238C3622A375B6400BA0CFD /* CadastroViewController.swift */,
+			);
+			path = CadastroViewController;
+			sourceTree = "<group>";
+		};
 		623A9F96299BAA2800206413 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				628D4D792AC1E28C00777999 /* Menu */,
+				6238C3602A375B0B00BA0CFD /* Cadastro */,
 				62CAE41129A68D9200FAB5D7 /* TabBar */,
 				621938592996CAEC00131D2D /* TelaInicial */,
 				623A9F97299BAA3900206413 /* Feed */,
@@ -124,12 +149,36 @@
 			path = FeedViewController;
 			sourceTree = "<group>";
 		};
+		6241335A2AC5B62B00A742B8 /* CadastroModel */ = {
+			isa = PBXGroup;
+			children = (
+				624133582AC5B62600A742B8 /* CadastroModel.swift */,
+			);
+			path = CadastroModel;
+			sourceTree = "<group>";
+		};
 		62605DBF299FF7C5008D2599 /* FeedModel */ = {
 			isa = PBXGroup;
 			children = (
 				62605DC0299FF7E7008D2599 /* FeedModel.swift */,
 			);
 			path = FeedModel;
+			sourceTree = "<group>";
+		};
+		628D4D792AC1E28C00777999 /* Menu */ = {
+			isa = PBXGroup;
+			children = (
+				628D4D7A2AC1E2A300777999 /* MenuView */,
+			);
+			path = Menu;
+			sourceTree = "<group>";
+		};
+		628D4D7A2AC1E2A300777999 /* MenuView */ = {
+			isa = PBXGroup;
+			children = (
+				628D4D7B2AC1E2C900777999 /* MenuViewController.swift */,
+			);
+			path = MenuView;
 			sourceTree = "<group>";
 		};
 		62CAE41129A68D9200FAB5D7 /* TabBar */ = {
@@ -222,9 +271,12 @@
 				62CAE41629A68E1E00FAB5D7 /* MainTabBarViewController.swift in Sources */,
 				62605DC1299FF7E7008D2599 /* FeedModel.swift in Sources */,
 				6219385D2996CB5800131D2D /* TelaInicialModel.swift in Sources */,
+				628D4D7C2AC1E2C900777999 /* MenuViewController.swift in Sources */,
 				623A9F9A299BAA6F00206413 /* FeedViewController.swift in Sources */,
+				624133592AC5B62600A742B8 /* CadastroModel.swift in Sources */,
 				621938462996C9A300131D2D /* AppDelegate.swift in Sources */,
 				621938482996C9A300131D2D /* SceneDelegate.swift in Sources */,
+				6238C3632A375B6400BA0CFD /* CadastroViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

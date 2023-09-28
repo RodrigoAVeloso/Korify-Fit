@@ -12,6 +12,7 @@ class FeedViewController: UIViewController {
     // MARK: - Componentes
 
     private lazy var colorView = UIColor(red: 41.0/255.0, green: 43.0/255.0, blue: 41.0/255.0, alpha: 0.8)
+    
     private lazy var headerView: UIView = {
         let view = UIView()
         view.backgroundColor = colorView
@@ -150,6 +151,18 @@ class FeedViewController: UIViewController {
         return botao
     }()
     
+    private lazy var logoffButton: UIBarButtonItem = {
+        let button = UIBarButtonItem()
+        button.title = "Logout"
+        button.action = #selector(actionButtonLogoff)
+        let tap = UITapGestureRecognizer(target: self, action: #selector(actionButtonLogoff))
+        button.customView?.addGestureRecognizer(tap)
+        return button
+    }()
+    // let button1 = UIBarButtonItem(image: UIImage(named: "imagename"), style: .plain, target: self, action: Selector("action")) // action:#selector(Class.MethodName) for swift 3
+
+    
+    
     // MARK: - Teste
     
      
@@ -168,6 +181,7 @@ class FeedViewController: UIViewController {
     }
     
     func headerViewConfig() {
+        self.navigationItem.rightBarButtonItem  = logoffButton
         view.backgroundColor = colorView
         headerView.addSubview(perfilImageView)
         perfilImageView.centerYAnchor.constraint(equalTo: headerView.centerYAnchor).isActive = true
@@ -385,5 +399,11 @@ class FeedViewController: UIViewController {
         image.widthAnchor.constraint(equalTo: weeklyInfoSubView.widthAnchor).isActive = true
         image.heightAnchor.constraint(equalTo: weeklyInfoSubView.heightAnchor).isActive = true
         
+    }
+    
+    @objc func actionButtonLogoff(){
+        print("Teste =====")
+        self.navigationController?.dismiss(animated: true)
+        print("Teste =====")
     }
 }
